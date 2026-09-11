@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Professional portfolio of Abdulmumin Abdulkarim — web developer, software technologist and ICT professional.">
+  <meta name="author" content="Abdulmumin Abdulkarim">
+  <title>Abdulmumin Abdulkarim | Web Developer & Software Technologist</title>
+
+  <style>
+    :root {
+      --bg: #f7f8f5;
+      --surface: #ffffff;
+      --text: #142019;
+      --muted: #617067;
+      --primary: #075c43;
+      --primary-dark: #043d2e;
+      --accent: #c9a84b;
+      --border: #dfe6e1;
+      --shadow: 0 18px 50px rgba(20, 32, 25, .08);
+      --radius: 18px;
+      --max: 1120px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.65;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      width: min(var(--max), calc(100% - 40px));
+      margin: auto;
+    }
+
+    /* Navigation */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(247, 248, 245, .94);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(223, 230, 225, .8);
+    }
+
+    nav {
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      font-weight: 800;
+      font-size: 1.05rem;
+      letter-spacing: -.02em;
+    }
+
+    .brand span { color: var(--primary); }
+
+    .nav-links {
+      display: flex;
+      gap: 26px;
+      list-style: none;
+      font-size: .93rem;
+      font-weight: 600;
+    }
+
+    .nav-links a:hover { color: var(--primary); }
+
+    .menu-btn {
+      display: none;
+      border: 0;
+      background: transparent;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    /* Hero */
+    .hero {
+      padding: 110px 0 95px;
+      background:
+        radial-gradient(circle at 85% 20%, rgba(201,168,75,.13), transparent 28%),
+        radial-gradient(circle at 10% 80%, rgba(7,92,67,.09), transparent 30%);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.4fr .8fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      color: var(--primary);
+      font-size: .82rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: clamp(2.7rem, 7vw, 5.4rem);
+      line-height: .98;
+      letter-spacing: -.055em;
+      max-width: 850px;
+    }
+
+    h1 span { color: var(--primary); }
+
+    .hero-copy {
+      max-width: 680px;
+      margin-top: 28px;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 13px;
+      margin-top: 32px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 20px;
+      border-radius: 10px;
+      font-weight: 700;
+      border: 1px solid var(--primary);
+      transition: .2s ease;
+    }
+
+    .btn-primary {
+      color: white;
+      background: var(--primary);
+    }
+
+    .btn-primary:hover { background: var(--primary-dark); transform: translateY(-2px); }
+
+    .btn-outline {
+      color: var(--primary);
+      background: transparent;
+    }
+
+    .btn-outline:hover { background: rgba(7,92,67,.06); }
+
+    .profile-card {
+      min-height: 360px;
+      background: var(--primary);
+      color: white;
+      border-radius: 28px;
+      padding: 34px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .profile-card::before {
+      content: "";
+      position: absolute;
+      width: 210px;
+      height: 210px;
+      border: 1px solid rgba(255,255,255,.25);
+      border-radius: 50%;
+      right: -70px;
+      top: -60px;
+    }
+
+    .profile-initials {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: rgba(255,255,255,.13);
+      border: 1px solid rgba(255,255,255,.28);
+      font-size: 2rem;
+      font-weight: 800;
+    }
+
+    .profile-card small { color: rgba(255,255,255,.72); }
+
+    /* Sections */
+    section { padding: 92px 0; }
+
+    .section-heading {
+      max-width: 720px;
+      margin-bottom: 42px;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      letter-spacing: -.04em;
+      line-height: 1.1;
+      margin-bottom: 14px;
+    }
+
+    .section-heading p { color: var(--muted); }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 70px;
+    }
+
+    .about-number {
+      font-size: 5rem;
+      font-weight: 900;
+      color: var(--primary);
+      line-height: 1;
+    }
+
+    .about-label {
+      color: var(--muted);
+      max-width: 230px;
+    }
+
+    .about-text p + p { margin-top: 17px; }
+
+    /* Skills */
+    .skills {
+      background: var(--primary-dark);
+      color: white;
+    }
+
+    .skills .section-heading p { color: rgba(255,255,255,.7); }
+
+    .skill-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+    }
+
+    .skill {
+      border: 1px solid rgba(255,255,255,.13);
+      background: rgba(255,255,255,.05);
+      border-radius: 14px;
+      padding: 22px;
+      min-height: 145px;
+    }
+
+    .skill strong {
+      display: block;
+      font-size: 1.05rem;
+      margin-bottom: 8px;
+    }
+
+    .skill p {
+      color: rgba(255,255,255,.66);
+      font-size: .9rem;
+    }
+
+    /* Projects */
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .project {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      box-shadow: 0 8px 30px rgba(20,32,25,.035);
+      transition: .2s ease;
+    }
+
+    .project:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+    }
+
+    .project-tag {
+      color: var(--primary);
+      font-size: .76rem;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .project h3 {
+      margin: 10px 0;
+      font-size: 1.35rem;
+    }
+
+    .project p { color: var(--muted); }
+
+    .project ul {
+      margin: 18px 0 0 18px;
+      color: var(--muted);
+      font-size: .92rem;
+    }
+
+    /* Experience */
+    .timeline {
+      border-left: 2px solid var(--border);
+      padding-left: 30px;
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 38px;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      width: 11px;
+      height: 11px;
+      background: var(--primary);
+      border-radius: 50%;
+      left: -37px;
+      top: 7px;
+      box-shadow: 0 0 0 5px var(--bg);
+    }
+
+    .timeline-date {
+      color: var(--primary);
+      font-size: .8rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+
+    .timeline h3 { margin: 5px 0; }
+
+    .timeline p { color: var(--muted); }
+
+    /* Contact */
+    .contact {
+      background: #eef2ee;
+    }
+
+    .contact-card {
+      background: var(--surface);
+      border-radius: 25px;
+      padding: 48px;
+      display: grid;
+      grid-template-columns: 1.4fr .6fr;
+      gap: 40px;
+      box-shadow: var(--shadow);
+    }
+
+    .contact-card h2 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1.05;
+      letter-spacing: -.04em;
+      margin-bottom: 15px;
+    }
+
+    .contact-card p { color: var(--muted); }
+
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      justify-content: center;
+    }
+
+    .contact-links a {
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    footer {
+      padding: 28px 0;
+      background: var(--primary-dark);
+      color: rgba(255,255,255,.7);
+      font-size: .88rem;
+    }
+
+    footer .container {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    @media (max-width: 850px) {
+      .hero-grid,
+      .about-grid,
+      .contact-card { grid-template-columns: 1fr; }
+
+      .skill-grid { grid-template-columns: repeat(2, 1fr); }
+      .hero { padding-top: 75px; }
+    }
+
+    @media (max-width: 650px) {
+      .container { width: min(var(--max), calc(100% - 28px)); }
+
+      .menu-btn { display: block; }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 72px;
+        left: 0;
+        right: 0;
+        padding: 20px;
+        background: var(--surface);
+        flex-direction: column;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .nav-links.open { display: flex; }
+
+      .project-grid,
+      .skill-grid { grid-template-columns: 1fr; }
+
+      section { padding: 70px 0; }
+
+      .contact-card { padding: 30px; }
+
+      footer .container { flex-direction: column; }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="container">
+    <nav>
+      <a class="brand" href="#home">AKAS <span>Technologies</span></a>
+
+      <button class="menu-btn" aria-label="Open navigation" onclick="toggleMenu()">☰</button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Expertise</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero" id="home">
+    <div class="container hero-grid">
+      <div>
+        <span class="eyebrow">Web Developer · Software Technologist · ICT Professional</span>
+        <h1>Building <span>useful digital experiences</span> for people and organisations.</h1>
+        <p class="hero-copy">
+          I’m Abdulmumin Abdulkarim, a web developer and computing professional focused on
+          WordPress, web applications, institutional websites, data-driven digital solutions,
+          and practical technology systems.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#projects">View my work</a>
+          <a class="btn btn-outline" href="#contact">Let's connect</a>
+        </div>
+      </div>
+
+      <aside class="profile-card" aria-label="Profile summary">
+        <div class="profile-initials">AA</div>
+        <div>
+          <small>Professional focus</small>
+          <h2>Web &amp; Software</h2>
+          <p>Institutional web platforms, WordPress development, backend systems and digital transformation.</p>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container">
+      <div class="section-heading">
+        <span class="eyebrow">About me</span>
+        <h2>Technology should solve real problems.</h2>
+        <p>A practical approach to software, websites and digital services.</p>
+      </div>
+
+      <div class="about-grid">
+        <div>
+          <div class="about-number">01</div>
+          <p class="about-label">Designing and maintaining technology that organisations can actually use and sustain.</p>
+        </div>
+
+        <div class="about-text">
+          <p>
+            I am a computing professional with an MSc in Computing (Software Technology)
+            and hands-on experience in web development, institutional websites and ICT services.
+          </p>
+          <p>
+            My work combines development with systems thinking: understanding the organisation,
+            improving the workflow, building the right technical solution, and making it maintainable.
+          </p>
+          <p>
+            I also enjoy teaching and mentoring learners in areas including JavaScript,
+            data science and analytics, web technologies, databases and practical digital skills.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="skills" id="skills">
+    <div class="container">
+      <div class="section-heading">
+        <span class="eyebrow">Expertise</span>
+        <h2>What I work with.</h2>
+        <p>Selected technical and professional capabilities.</p>
+      </div>
+
+      <div class="skill-grid">
+        <article class="skill">
+          <strong>WordPress</strong>
+          <p>Institutional websites, customisation, performance, content workflows and maintenance.</p>
+        </article>
+
+        <article class="skill">
+          <strong>Web Development</strong>
+          <p>HTML, CSS, JavaScript, responsive interfaces and practical web applications.</p>
+        </article>
+
+        <article class="skill">
+          <strong>Backend Engineering</strong>
+          <p>Node.js, Express, REST APIs, authentication, databases and modular application architecture.</p>
+        </article>
+
+        <article class="skill">
+          <strong>Data &amp; Analytics</strong>
+          <p>Data preparation, analysis, visualisation and communicating insights for decision-making.</p>
+        </article>
+
+        <article class="skill">
+          <strong>ICT Systems</strong>
+          <p>Web infrastructure, security awareness, server-side considerations and digital services.</p>
+        </article>
+
+        <article class="skill">
+          <strong>Technical Training</strong>
+          <p>Hands-on learning materials, labs, demonstrations and beginner-friendly technical instruction.</p>
+        </article>
+
+        <article class="skill">
+          <strong>Digital Transformation</strong>
+          <p>Improving institutional processes through better platforms, workflows and automation.</p>
+        </article>
+
+        <article class="skill">
+          <strong>Problem Solving</strong>
+          <p>Breaking complex technical problems into clear, practical and maintainable solutions.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="container">
+      <div class="section-heading">
+        <span class="eyebrow">Selected work</span>
+        <h2>Projects &amp; initiatives.</h2>
+        <p>A selection of the kinds of digital products and systems I build or contribute to.</p>
+      </div>
+
+      <div class="project-grid">
+
+        <article class="project">
+          <span class="project-tag">Institutional Web</span>
+          <h3>University Web Platform</h3>
+          <p>
+            Website architecture, content management and performance improvement for a large
+            university web ecosystem.
+          </p>
+          <ul>
+            <li>WordPress-based publishing</li>
+            <li>Staff and institutional content</li>
+            <li>Performance and security improvement</li>
+          </ul>
+        </article>
+
+        <article class="project">
+          <span class="project-tag">Marketplace</span>
+          <h3>AfriConnect Backend</h3>
+          <p>
+            A modular backend platform supporting marketplace functionality, users, vendors,
+            products, orders, payments and real-time notifications.
+          </p>
+          <ul>
+            <li>Node.js + Express</li>
+            <li>MongoDB / Mongoose</li>
+            <li>JWT authentication and role-based access</li>
+          </ul>
+        </article>
+
+        <article class="project">
+          <span class="project-tag">SaaS Concept</span>
+          <h3>Facilities Operations Platform</h3>
+          <p>
+            A facilities management concept designed to connect tenants, technicians and managers
+            around maintenance requests and operational workflows.
+          </p>
+          <ul>
+            <li>Work orders and SLA tracking</li>
+            <li>Preventive maintenance</li>
+            <li>Operational analytics</li>
+          </ul>
+        </article>
+
+        <article class="project">
+          <span class="project-tag">Education</span>
+          <h3>Technical Learning Labs</h3>
+          <p>
+            Practical learning resources and labs for web development, JavaScript, data analytics,
+            databases, Excel and digital portfolios.
+          </p>
+          <ul>
+            <li>Step-by-step practical exercises</li>
+            <li>Project-based learning</li>
+            <li>Portfolio and GitHub workflows</li>
+          </ul>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="container">
+      <div class="section-heading">
+        <span class="eyebrow">Experience</span>
+        <h2>A career built around technology and service.</h2>
+      </div>
+
+      <div class="timeline">
+
+        <article class="timeline-item">
+          <span class="timeline-date">2019 — Present</span>
+          <h3>ICT / Web Development</h3>
+          <p>
+            Professional experience supporting institutional web platforms, digital services,
+            website development and technology-driven organisational improvements.
+          </p>
+        </article>
+
+        <article class="timeline-item">
+          <span class="timeline-date">Teaching &amp; Training</span>
+          <h3>Technical Instructor &amp; Mentor</h3>
+          <p>
+            Delivering practical training in JavaScript, data science and analytics,
+            computing fundamentals and related digital technologies.
+          </p>
+        </article>
+
+        <article class="timeline-item">
+          <span class="timeline-date">Education</span>
+          <h3>MSc Computing — Software Technology</h3>
+          <p>
+            Advanced academic training in computing and software technology, complemented by
+            practical software and web development experience.
+          </p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="contact-card">
+        <div>
+          <span class="eyebrow">Get in touch</span>
+          <h2>Have a technology project or idea?</h2>
+          <p>
+            I’m interested in web development, institutional digital transformation,
+            software projects, technical training and practical technology solutions.
+          </p>
+        </div>
+
+        <div class="contact-links">
+          <!-- Replace the placeholder links below with your preferred contact details. -->
+          <a href="mailto:your-email@example.com">Email me →</a>
+          <a href="https://github.com/eneyeitech" target="_blank" rel="noopener">GitHub →</a>
+          <a href="#home">Back to top ↑</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <p>© <span id="year"></span> Abdulmumin Abdulkarim. All rights reserved.</p>
+    <p>AKAS Technologies</p>
+  </div>
+</footer>
+
+<script>
+  function toggleMenu() {
+    document.getElementById("navLinks").classList.toggle("open");
+  }
+
+  document.querySelectorAll("#navLinks a").forEach(link => {
+    link.addEventListener("click", () => {
+      document.getElementById("navLinks").classList.remove("open");
+    });
+  });
+
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
