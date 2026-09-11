@@ -6,6 +6,8 @@ This project provides a simple exploratory analysis of the **Hollywood's Most Pr
 
 The goal of the analysis is to identify basic patterns in **film profitability, genre performance, audience reception, and worldwide gross**.
 
+![Bar Chart](barchart.png)
+
 ## Dataset
 
 - **Records:** 74
